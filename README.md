@@ -1,6 +1,7 @@
 一个以 Django 作为框架搭建的个人博客。
 
-博客效果： https://tendcode.com/
+博客效果： http://www.theoracle.top
+来源GitHub地址: https://github.com/Hopetree/izone
 
 ## 功能介绍
 - Django 自带的后台管理系统，方便对于文章、用户及其他动态内容的管理
@@ -33,5 +34,5 @@
 ![iphone](https://user-images.githubusercontent.com/30201215/60588832-8e6d6780-9dca-11e9-84fa-f1d71510c81e.jpg)
 
 ## 运行指导
-- 由于本项目分为几个不同的分支，每个分支的功能是一样的，但是运行的方式不同，所以需要根据分支查看对应的运行wiki
 - 指导 wiki：https://github.com/Hopetree/izone/wiki
+- 
