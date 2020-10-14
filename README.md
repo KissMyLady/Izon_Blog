@@ -35,4 +35,4 @@
 
 ## 运行指导
 - 指导 wiki：https://github.com/Hopetree/izone/wiki
-- 
+- 加我QQ: 137 3816 972
