@@ -1,0 +1,64 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load blog_tags %}
+
+{# 顶部静态文件导入 #}
+{% block top-file %}
+    <link href="{% static 'blog/css/timeline.css'%}?v=1.07" rel="stylesheet">
+{% endblock %}
+
+{% block head_title %}网站建站历程，查看博客搭建Timeline时间轴{% endblock %}
+
+{# SEO优化 #}
+{% block metas %}
+    <meta name="description"
+          content="本网站是一个采用django+bootstrap4搭建的个人博客">
+    <meta name="keywords" content="Timeline时间轴,个人博客建站日志">
+{% endblock %}
+
+
+{# 主题内容区域 #}
+{% block base_content %}
+<div class="container">
+    <div class="page-header mt-0">
+        <h1 id="timeline"><i class="fa fa-hourglass-half mr-2"></i>建站日志</h1>
+    </div>
+    <ul class="timeline" id="timeline">
+    {# for循环 #}
+        {% for timeline in timeline_list %}
+            {% if timeline.side == 'L' %}
+                <li></li>
+            {% else %}
+                <li class="timeline-inverted">{% endif %}
+                    <div class="timeline-badge {{ timeline.icon_color }}"><i class="{{ timeline.icon }}"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h2 class="timeline-title text-info">{{ timeline.title }}</h2>
+                            <p class="mb-1">
+                                <span class="text-muted"><i class="glyphicon glyphicon-time"></i> {{ timeline.update_date|date:'Y-m-d'  }}</span>
+                                <span class="pull-right" id="star" title="{% get_star_title timeline.star_num %}">{% get_star timeline.star_num %}</span>
+                            </p>
+                        </div>
+                        <div class="timeline-body">
+                            {{ timeline.content_to_markdown|safe }}
+                        </div>
+                    </div>
+                </li>
+            {% empty %}
+                <p>暂时没有时间线</p>
+        {% endfor %}
+        {# 结束for循环 #}
+    </ul>
+</div>
+{% endblock %}
+
+
+{# 底部文件导入 #}
+{% block js-file %}
+    <script>
+    $(document).ready(function(){
+        $(".timeline-body a").attr("target","_blank");
+    });
+
+    </script>
+{% endblock %}
